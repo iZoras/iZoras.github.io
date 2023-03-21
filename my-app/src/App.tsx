@@ -1,15 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Button from './components/button';
-
-
+import React from "react";
 
 function App() {
-  return (
+  return (    
     <div className="App">
+      <h1>this is home</h1>
       
-      <Button>Кнопка</Button>
     </div>
   );
 }

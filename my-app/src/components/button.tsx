@@ -1,4 +1,5 @@
 import React, { FC, ReactNode } from 'react';
+import '../styles/button-styles/Button.css'
 
 interface ButtonProps {
   onClick?: () => void;
@@ -8,10 +9,11 @@ interface ButtonProps {
 
 const Button: FC<ButtonProps> = ({ onClick, disabled, children }) => {
   return (
-    <button onClick={onClick} disabled={disabled}>
+    <button className='newButton' onClick={onClick} disabled={disabled}>
       {children}
     </button>
   );
 };
 
 export default Button;
+export {};
