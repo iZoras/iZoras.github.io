@@ -1,14 +1,13 @@
 import React from "react";
-import Layout from "../components/Layout";
+import Header from "../components/header";
+
 
 function Catalog(): JSX.Element {
   return (
     <>
-      <h1>this is the catalog</h1>
+      <title>Catalog</title> 
       
-      <Layout />
-
-      <p>some other text</p>
+      
     </>
   );
 }
