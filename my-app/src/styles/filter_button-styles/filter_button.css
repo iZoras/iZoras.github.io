@@ -1,0 +1,17 @@
+.filter-btn {
+  display: inline-block;
+  width: 120px;
+  height: 70px;
+  padding: 10px;
+  text-align: center;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.active {
+  background-color: #ccc;
+}
+
+.inactive {
+  background-color: white;
+}/*# sourceMappingURL=filter_button.css.map */

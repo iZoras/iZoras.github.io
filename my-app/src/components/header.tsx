@@ -8,8 +8,9 @@ import m_glass_input_img from "../img/magn_glass_for_btn.png";
 import woman_img from "../img/woman.jpg";
 import arrow_img from "../img/arrow.png";
 import shopping_cart_img from "../img/shopping_cart_img.png";
-import OrangeButton from "./button";
-import GreyInput from "./greyInput";
+import OrangeButton from "./Button";
+import GreyInput from "./GreyInput";
+
 
 interface HeaderProps {
     title: string;
