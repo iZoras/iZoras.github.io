@@ -8,8 +8,9 @@ import m_glass_input_img from "../img/magn_glass_for_btn.png";
 import woman_img from "../img/woman.jpg";
 import arrow_img from "../img/arrow.png";
 import shopping_cart_img from "../img/shopping_cart_img.png";
-import OrangeButton from "./Button";
-import GreyInput from "./GreyInput";
+import OrangeButton from "./button";
+import GreyInput from "./greyInput";
+
 
 
 interface HeaderProps {
@@ -89,7 +90,7 @@ const Header: React.FC<HeaderProps> = ({ title, cart_price }) => {
             <div className="section-wrapper border border-b-gray-300 border-t-gray-300">
                 <div className="header-section justify-around">
                     <img className="mr-8 ml-0" src={logo_img} alt="logo" />
-                    <OrangeButton className="">
+                    <OrangeButton className="header-btn">
                         <span className="text-white">Каталог</span>
                         <div className="button-pick">
                             <span className="square_1"></span>
@@ -116,7 +117,7 @@ const Header: React.FC<HeaderProps> = ({ title, cart_price }) => {
                         <img className="rounded-full" src={woman_img} alt="" />
                     </div>
 
-                    <OrangeButton className="">
+                    <OrangeButton className="header-btn">
                         <span className="text-white">Прайс-лист</span>
                         <img src={arrow_img} alt="" />
                     </OrangeButton>

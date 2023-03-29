@@ -1,7 +1,7 @@
 
 
 .header-section {
-    width: 80%;
+    width: 90%;
     display: flex;
     padding: 15px 0;
     margin: 0 auto;
@@ -22,6 +22,10 @@
         border: 1px solid white;
         background-color: transparent;
     }
+}
+
+.header-btn{
+    padding: 10px 54px;
 }
 
 .square_1 {

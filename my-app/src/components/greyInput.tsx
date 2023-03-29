@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import glass from "../img/magn_glass_for_btn.png";
+import  "../styles/grey_input-style/gray-input-style.css"
 
 interface GreyInputFunctions {
     submitHandler?: () => void;
@@ -21,17 +22,17 @@ const GreyInput: React.FC<GreyInputFunctions> = () => {
 
     return (
         <form
-            className="flex align-middle rounded-full bg-slate-300 py-3 px-2 my-auto"
+            className="input-container flex align-middle rounded-full bg-slate-300 my-auto"
             onSubmit={submitHandler}
         >
             <input
                 placeholder="Поиск..."
-                className="outline-0 bg-transparent"
+                className="  outline-0 bg-transparent"
                 type="text"
                 value={value}
                 onChange={changeHandler}
             />
-            <div className="p-2 rounded-full bg-orange-400 flex align-middle justify-center m-auto">
+            <div className="search-input rounded-full bg-orange-400 flex align-middle justify-center m-auto">
                 <img src={glass} alt="glass" />
             </div>
         </form>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { IProduct } from "../models";
-import OrangeButton from "./Button";
+import OrangeButton from "./button";
 import white_cart_img from "../img/cart_img_white.png";
 import "../styles/product-style/product.css";
 
@@ -18,9 +18,9 @@ export default function Product({ product }: ProductProps) {
                 <p>
                     {product.amount}
                     {product.typeOfMeasurement}
-                </p>
+                </p><br /><br />
             </div>
-            <h4 className="font-bold">{product.title}</h4>
+            <h4 className="font-bold">{product.title}</h4><br /><br />
             <p>
                 <span className=" text-gray-500">Штрихкод: </span>
                 <span className="font-bold">{product.barcode}</span>
@@ -32,10 +32,10 @@ export default function Product({ product }: ProductProps) {
             <p>
                 <span className=" text-gray-500">Бренд: </span>
                 <span className="font-bold">{product.brand}</span>
-            </p>
+            </p><br /><br />
             <div className="flex justify-between items-center ">
                 <span className="font-bold">{product.price.sum}{product.price.typeOfCurrency}</span>
-                <OrangeButton className={"flex flex-row "}>
+                <OrangeButton className={"product-btn flex flex-row "}>
                     <span>В корзину</span>
                     <img src={white_cart_img} alt="" />
                 </OrangeButton>
