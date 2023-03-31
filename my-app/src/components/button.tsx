@@ -15,7 +15,7 @@ const OrangeButton: FC<OrangeButtonProps> = ({
   return (
     <div
       className={
-        "whitespace-nowrap gap-1 my-auto flex items-center rounded-full justify-center bg-orange-400 text-white " +
+        "orange-btn whitespace-nowrap gap-1 my-auto flex items-center rounded-full justify-center bg-orange-400 text-white " +
         className
       }
       onClick={onClick}

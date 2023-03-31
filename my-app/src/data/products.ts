@@ -16,7 +16,7 @@ export const products: IProduct[] = [
             sum: 9999,
             typeOfCurrency: "₸",
         },
-        keywords: ["рука"]
+        keywords: ["руки"]
     },
     {
         id: 2,
@@ -33,7 +33,7 @@ export const products: IProduct[] = [
             sum: 9999,
             typeOfCurrency: "₸",
         },
-        keywords: ["рука", "лицо"]
+        keywords: ["руки", "лицо"]
     },
     {
         id: 3,
@@ -50,7 +50,7 @@ export const products: IProduct[] = [
             sum: 9999,
             typeOfCurrency: "₸",
         },
-        keywords: ["рука"]
+        keywords: ["руки"]
     },
     {
         id: 4,
@@ -67,7 +67,7 @@ export const products: IProduct[] = [
             sum: 9999,
             typeOfCurrency: "₸",
         },
-        keywords: ["рука", "лицо"]
+        keywords: ["руки", "лицо"]
     },
     {
         id: 5,
@@ -77,14 +77,14 @@ export const products: IProduct[] = [
         amount: 1,
         barcode: 11111111,
         manufacturer: "China",
-        brand: "H&M",
+        brand: "H&M ТУтА",
         description:
             "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
         price: {
             sum: 9999,
             typeOfCurrency: "₸",
         },
-        keywords: ["рука", "лицо"]
+        keywords: [ "лицо","волосы"]
     },
     {
         id: 6,
@@ -101,7 +101,7 @@ export const products: IProduct[] = [
             sum: 9999,
             typeOfCurrency: "₸",
         },
-        keywords: ["рука", "лицо"]
+        keywords: [ "лицо"]
     },
     {
         id: 7,
@@ -118,7 +118,7 @@ export const products: IProduct[] = [
             sum: 9999,
             typeOfCurrency: "₸",
         },
-        keywords: ["рука"]
+        keywords: ["руки"]
     },
     {
         id: 8,
@@ -135,7 +135,7 @@ export const products: IProduct[] = [
             sum: 9999,
             typeOfCurrency: "₸",
         },
-        keywords:["рука"]
+        keywords:["руки"]
     },
     {
         id: 9,
@@ -152,7 +152,7 @@ export const products: IProduct[] = [
             sum: 9999,
             typeOfCurrency: "₸",
         },
-        keywords: ["рука"]
+        keywords: ["руки"]
     },
     {
         id: 10,
@@ -169,7 +169,7 @@ export const products: IProduct[] = [
             sum: 9999,
             typeOfCurrency: "₸",
         },
-        keywords: ["рука"]
+        keywords: ["руки"]
     },
     {
         id: 11,
@@ -186,6 +186,6 @@ export const products: IProduct[] = [
             sum: 9999,
             typeOfCurrency: "₸",
         },
-        keywords: ["рука"]
+        keywords: ["руки"]
     }
 ];

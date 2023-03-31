@@ -1,10 +1,14 @@
 import { useState } from "react";
+import { IFilterItem } from "../models";
 import { FilterItem } from "../pages/catalog/catalog_viewController";
 import "../styles/filter_button-styles/filter_button.css";
 
 export interface IFilterButtonProps {
     filter: FilterItem;
-    sortBy: () => void;
+    sortBy: (        
+        value: string,
+        filterStatus: boolean
+    ) => void;
 }
 
 export default function FilterButton({
@@ -12,15 +16,25 @@ export default function FilterButton({
     sortBy,
     ...props
 }: IFilterButtonProps) {
-    
-        const [isActive, setIsActive] = useState(false);
-      
-        const toggleActive = () => {
-          setIsActive(!isActive);
-        };
+    const [isActive, setIsActive] = useState(false);
+
+    const toggleActive = () => {
+        setIsActive(!isActive);
+    };
+
+    const handleClick = () => {
+        toggleActive();
+        sortBy(filter.keyword, isActive);
+    };
 
     return (
-        <div id={filter.id} onClick={toggleActive} className={`filter-btn shadow-md ${isActive ? 'active' : 'inactive'}`}>
+        <div
+            id={filter.id}
+            onClick={handleClick}
+            className={`filter-btn shadow-md ${
+                isActive ? "active" : "inactive"
+            }`}
+        >
             <span>{filter.text}</span>
         </div>
     );

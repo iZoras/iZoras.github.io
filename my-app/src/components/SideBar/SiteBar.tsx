@@ -10,6 +10,9 @@ export default function SideBar(props: SideBarProps) {
 
   const [endPrice, setEndPrice] = useState<number>(10000);
 
+  const manufacturers = ["Grifon", "Boyscout", "Paclan", "Булгари Грин"];
+  const brands = ["Nivea", "GRIFON", "Paclan", "Домашний сундук"];
+
   return (
     <div className="sideBar-wrap ">
       <div className="flex flex-col">
@@ -27,7 +30,8 @@ export default function SideBar(props: SideBarProps) {
             {endPrice}
           </div>
         </div>
-        <SideBarFilter title={''}/>
+        <SideBarFilter title={'Производитель'} filterOptions={manufacturers}/>
+        <SideBarFilter title={'Бренд'} filterOptions={brands}/>
       </div>
     </div>
   );

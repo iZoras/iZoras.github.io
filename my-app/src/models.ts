@@ -1,5 +1,5 @@
 export interface IProduct {
-    id?:number;
+    id?: number;
     url: string;
     title: string;
     typeOfMeasurement: string;
@@ -8,9 +8,15 @@ export interface IProduct {
     manufacturer: string;
     brand: string;
     description: string;
-    price:{
-      sum: number;
-      typeOfCurrency: string;
+    price: {
+        sum: number;
+        typeOfCurrency: string;
     };
-    keywords: string[]
-  }
+    keywords: string[];
+}
+
+export interface IFilterItem {
+    keywords?: string[];
+    manufacturer?: string[];
+    brand?: string[];
+}
