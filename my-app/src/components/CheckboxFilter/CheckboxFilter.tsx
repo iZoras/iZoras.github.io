@@ -1,42 +1,59 @@
-import React, { useState } from "react";
-import '../../styles/checkbox-filter-style/checkbox-filter-style.css'
+import { useState } from "react";
+import { IFilterItem } from "../../models";
 
 interface CheckboxProps {
-  options: string[];
-  onFilterChange: (checkedItems: Map<string, boolean>) => void;
+    options: string[];
+    onFilterChange: (checkedItems: Map<string, boolean>) => void;
+    title: keyof IFilterItem;
+
+    sortBy: (
+        typeOfFilter: keyof IFilterItem,
+        value: string,
+        filterStatus: boolean
+    ) => void;
 }
 
-function CheckboxFilter({ options, onFilterChange }: CheckboxProps) {
-  const [checkedItems, setCheckedItems] = useState<Map<string, boolean>>(
-    new Map()
-  );
+function CheckboxFilter({
+    options,
+    onFilterChange,
+    sortBy,
+    title,
+}: CheckboxProps) {
+    const [checkedItems, setCheckedItems] = useState<Map<string, boolean>>(
+        new Map()
+    );
 
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const item = event.target.name;
-    const isChecked = event.target.checked;
-    setCheckedItems((prevState) => prevState.set(item, isChecked));
-    onFilterChange(checkedItems);
-  };
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+        const item = event.target.name;
+        const isChecked = event.target.checked;
 
-  return (
-    <div>
-      <ul>
-        {options.map((option) => (
-          <li key={option}>
-            <label>
-              <input
-                type="checkbox"
-                name={option}
-                checked={checkedItems.get(option)}
-                onChange={handleChange}
-              />
-              {option}
-            </label>
-          </li>
-        ))}
-      </ul>
-    </div>
-  );
+        setCheckedItems((prevState) => prevState.set(item, isChecked));
+        onFilterChange(checkedItems);
+
+        sortBy(title, item, !isChecked);
+        console.log(item);
+    };
+
+    return (
+        <div>
+            <ul className="flex flex-col justify-start">
+                {options.map((option) => (
+                    <li key={option}>
+                        <label>
+                            <input
+                                className=" w-8"
+                                type="checkbox"
+                                name={option}
+                                checked={checkedItems.get(option) || false}
+                                onChange={handleChange}
+                            />
+                            {option}
+                        </label>
+                    </li>
+                ))}
+            </ul>
+        </div>
+    );
 }
 
 export default CheckboxFilter;

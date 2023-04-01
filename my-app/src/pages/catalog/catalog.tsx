@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import Product from "../../components/Product";
 import { products } from "../../data/products";
 import "../../styles/catalog-styles/catalog.css";
@@ -8,17 +8,16 @@ import SideBar from "../../components/SideBar/SiteBar";
 import { IFilterItem, IProduct } from "../../models";
 
 function Catalog(): JSX.Element {
-    const [product, setProduct] = useState(products);   
-    const [filteredProducts, setFilteredProducts] = useState(product);
+    const [product, setProduct] = useState(products);
+    //const [filteredProducts, setFilteredProducts] = useState(product);
     // const [filtersSettings, setFiltersSettings] = useState<string[]>([]);
 
     const [filtersSettings, setFiltersSettings] = useState<IFilterItem>({
         keywords: [],
         manufacturer: [],
-        brand: []        
-      });
+        brand: [],
+    });
 
-    
     const testProduct = products[0];
 
     function testAddProduct() {
@@ -27,62 +26,91 @@ function Catalog(): JSX.Element {
 
     //Добавляем в масив фильтров опции по которым фильтруем
 
-    function handleFilters(value: string, filterState: boolean): void {
+    const filteredProducts = useMemo(() => {
+        let filteredProducts = [...products];
+
+        // Apply keyword filter
+        if (filtersSettings.keywords && filtersSettings.keywords.length > 0) {
+            filteredProducts = filteredProducts.filter((product) =>
+                filtersSettings.keywords?.some((keyword) =>
+                    product.keywords.includes(keyword)
+                )
+            );
+            console.log(`filter 1 worked`)
+        }
+
+        // Apply manufacturer filter
+        if (
+            filtersSettings.manufacturer &&
+            filtersSettings.manufacturer.length > 0
+        ) {
+            filteredProducts = filteredProducts.filter((product) =>
+                filtersSettings.manufacturer?.includes(product.manufacturer)
+            );
+            console.log(`filter 2 worked`)
+        }
+
+        // Apply brand filter
+        if (filtersSettings.brand && filtersSettings.brand.length > 0) {
+            filteredProducts = filteredProducts.filter((product) =>
+                filtersSettings.brand?.includes(product.brand)
+            );
+            console.log(`filter 3 worked`)
+        }
+
+        return filteredProducts;
+    }, [products, filtersSettings]);
+
+    const handleFilters = (
+        typeOfFilter: keyof IFilterItem,
+        value: string,
+        filterState: boolean
+    ): void => {
         if (filterState) {
-            setFiltersSettings(prevFilters => ({
+            setFiltersSettings((prevFilters) => ({
                 ...prevFilters,
-                keywords: prevFilters.keywords?.filter(item => item !== value) || []
-              }));
+                [typeOfFilter]:
+                    prevFilters[typeOfFilter]?.filter(
+                        (item) => item !== value
+                    ) || [],
+            }));
             return;
         }
 
         setFiltersSettings((prevFilters) => ({
             ...prevFilters,
-            keywords: prevFilters?.keywords
-              ? [...prevFilters.keywords, value]
-              : [value],
-          }));
-    }
+            [typeOfFilter]: prevFilters.hasOwnProperty(typeOfFilter)
+                ? [...prevFilters[typeOfFilter]!, value]
+                : [value],
+        }));
+    };
 
-    useEffect(() => {
-        const resetFilters = () => {
-            setFilteredProducts(products);
-        };
+    // useEffect(() => {
+    //     const resetFilters = () => {
+    //         setFilteredProducts(products);
+    //     };
 
-        if (!filtersSettings.keywords?.length) {
-            resetFilters();
-        }
+    //     if (!filtersSettings.keywords?.length) {
+    //         resetFilters();
+    //     }
 
-        if (filteredProducts.length && filtersSettings.keywords?.length) {
-            // const filtered = filteredProducts.filter((item) => {
-            //     return item.keywords.some((keyword) =>
-            //         filtersSettings.includes(keyword)
-            //     );
-            // });
+    //     if (filteredProducts.length && filtersSettings.keywords?.length) {
 
-            const filtered = product.filter((t) =>
-                t.keywords.some((r) => filtersSettings.keywords?.includes(r))
-            );
+    //         const filtered = product.filter((t) =>
+    //             t.keywords.some((r) => filtersSettings.keywords?.includes(r))
+    //         );
 
-            setFilteredProducts(filtered);
-        }
-    }, [filtersSettings]);
+    //         setFilteredProducts(filtered);
+    //     }
+    // }, [filtersSettings]);
 
-    //ресетаем массив отфильтрованных продуктов
+    const checkTEST = () => {
+        console.log(filtersSettings);
+    };
 
     return (
         <div className="catalog-wrap">
-            {/*<div>{filtersSettings}</div>
-
-             <button onClick={testAddProduct}>addTest</button>
-            <button
-                className=" bg-gray-400"
-                onClick={() => {
-                    console.log(filtersSettings.length);
-                }}
-            >
-                TEST
-            </button> */}
+            <button className = "fixed left-0" onClick={checkTEST}>CLICK ME</button>
             <div>
                 <span className=" text-gray-700">Главная</span>
                 <span className=" text-sm text-gray-600"> | Косметика</span>
@@ -100,12 +128,16 @@ function Catalog(): JSX.Element {
 
             <div className="flex flex-row max-w-screen-md">
                 <div className="sidebar">
-                    <SideBar />
+                    <SideBar sortBy={handleFilters} />
                 </div>
                 <div className="product-show container ">
-                {filteredProducts && filteredProducts.map((product) => (
-                              <Product product={product} key={product.id} />
-                          ))}
+                    {filteredProducts ? (
+                        filteredProducts.map((product) => (
+                            <Product product={product} key={product.id} />
+                        ))
+                    ) : (
+                        <p>No products found.</p>
+                    )}
                 </div>
             </div>
         </div>

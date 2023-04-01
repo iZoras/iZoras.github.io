@@ -5,7 +5,8 @@ import "../styles/filter_button-styles/filter_button.css";
 
 export interface IFilterButtonProps {
     filter: FilterItem;
-    sortBy: (        
+    sortBy: (
+        typeOfFilter: keyof IFilterItem,
         value: string,
         filterStatus: boolean
     ) => void;
@@ -24,7 +25,7 @@ export default function FilterButton({
 
     const handleClick = () => {
         toggleActive();
-        sortBy(filter.keyword, isActive);
+        sortBy("keywords", filter.keyword, isActive);
     };
 
     return (

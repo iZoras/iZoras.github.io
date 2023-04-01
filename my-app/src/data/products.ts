@@ -93,15 +93,15 @@ export const products: IProduct[] = [
         typeOfMeasurement: "unit",
         amount: 1,
         barcode: 11111111,
-        manufacturer: "China",
-        brand: "H&M",
+        manufacturer: "Hui",
+        brand: "Hui",
         description:
             "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
         price: {
             sum: 9999,
             typeOfCurrency: "₸",
         },
-        keywords: [ "лицо"]
+        keywords: ["лицо"]
     },
     {
         id: 7,
