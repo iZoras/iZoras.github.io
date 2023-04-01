@@ -11,14 +11,13 @@
     margin-left: 100px;
 }
 
-
 .up-filters {
     justify-content: center;
     gap: 10px;
 }
 
 .headline {
-    font-family: 'Playfair Display', serif;
+    font-family: "Playfair Display", serif;
     font-size: 60px;
     font-weight: 500;
     line-height: 120%;
@@ -27,6 +26,44 @@
     margin: 100px 0;
 }
 
-.sidebar{
-    width: 40%;   
+.sidebar {
+    width: 40%;
+}
+
+.filter-buttons-wrap {
+    width: 100%;
+}
+
+.show-btn {
+    width: 169px;
+    height: 59px;
+}
+
+.clear-filters-btn {
+    width: 59px;
+    height: 59px;
+}
+
+.headline-mid {
+    font-family: Inter, sans-serif;
+    margin: 15px 0;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 150%;
+    /* identical to box height, or 24px */
+
+    text-transform: uppercase;
+    color: #111111;
+}
+
+.grey {
+    font-family: "Playfair Display", sans-serif;
+
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 150%;
+    color: #3f4e65;
+    margin-bottom: 10px;
 }

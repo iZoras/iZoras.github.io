@@ -18,5 +18,10 @@ export interface IProduct {
 export interface IFilterItem {
     keywords?: string[];
     manufacturer?: string[];
-    brand?: string[];
+    brand?: string[];    
+}
+
+export interface PriceFilterItem{
+  startPrice?: number;
+  endPrice?: number;
 }

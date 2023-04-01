@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Footer from "./components/Footer";
 import Header from "./components/header";
 
 
@@ -14,7 +15,7 @@ function App() {
           <Route path="/catalog" element={<Catalog />}/>          
           <Route path="/product-card" element={<ProductCard />}/>
         </Routes>
-      
+      <Footer/>
     </div>
   );
 }

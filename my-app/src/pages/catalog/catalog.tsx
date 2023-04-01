@@ -24,20 +24,45 @@ function Catalog(): JSX.Element {
         setProduct([...product, testProduct]);
     }
 
+    const [startPrice, setStartPrice] = useState(0)
+    const [endPrice, setEndPrice] = useState(10000)
+
+    const getPrice = (end: number, start: number) => {
+        setStartPrice(start);
+        setEndPrice(end)
+    };
+
     //Добавляем в масив фильтров опции по которым фильтруем
+
+    function inRange(num:number, start: number, end: number){
+        return num >= end && num <= start;
+      }
+
+    
+
 
     const filteredProducts = useMemo(() => {
         let filteredProducts = [...products];
 
-        // Apply keyword filter
-        if (filtersSettings.keywords && filtersSettings.keywords.length > 0) {
-            filteredProducts = filteredProducts.filter((product) =>
-                filtersSettings.keywords?.some((keyword) =>
-                    product.keywords.includes(keyword)
-                )
-            );
-            console.log(`filter 1 worked`)
-        }
+        filteredProducts = filteredProducts.filter(
+            (product) => inRange(product.price.sum, startPrice, endPrice)
+          );
+            console.log(startPrice);
+            console.log(inRange(product[0].price.sum, startPrice, endPrice));
+            console.log(endPrice);
+
+        if (filtersSettings.keywords && filtersSettings.keywords.length)
+            if (
+                filtersSettings.keywords &&
+                filtersSettings.keywords.length > 0
+            ) {
+                // Apply keyword filter
+                filteredProducts = filteredProducts.filter((product) =>
+                    filtersSettings.keywords?.some((keyword) =>
+                        product.keywords.includes(keyword)
+                    )
+                );
+            }
 
         // Apply manufacturer filter
         if (
@@ -47,7 +72,6 @@ function Catalog(): JSX.Element {
             filteredProducts = filteredProducts.filter((product) =>
                 filtersSettings.manufacturer?.includes(product.manufacturer)
             );
-            console.log(`filter 2 worked`)
         }
 
         // Apply brand filter
@@ -55,11 +79,10 @@ function Catalog(): JSX.Element {
             filteredProducts = filteredProducts.filter((product) =>
                 filtersSettings.brand?.includes(product.brand)
             );
-            console.log(`filter 3 worked`)
         }
 
         return filteredProducts;
-    }, [products, filtersSettings]);
+    }, [products, filtersSettings, startPrice, endPrice]);
 
     const handleFilters = (
         typeOfFilter: keyof IFilterItem,
@@ -85,32 +108,15 @@ function Catalog(): JSX.Element {
         }));
     };
 
-    // useEffect(() => {
-    //     const resetFilters = () => {
-    //         setFilteredProducts(products);
-    //     };
-
-    //     if (!filtersSettings.keywords?.length) {
-    //         resetFilters();
-    //     }
-
-    //     if (filteredProducts.length && filtersSettings.keywords?.length) {
-
-    //         const filtered = product.filter((t) =>
-    //             t.keywords.some((r) => filtersSettings.keywords?.includes(r))
-    //         );
-
-    //         setFilteredProducts(filtered);
-    //     }
-    // }, [filtersSettings]);
-
     const checkTEST = () => {
         console.log(filtersSettings);
     };
 
     return (
         <div className="catalog-wrap">
-            <button className = "fixed left-0" onClick={checkTEST}>CLICK ME</button>
+            <button className="fixed left-0" onClick={checkTEST}>
+                CLICK ME
+            </button>
             <div>
                 <span className=" text-gray-700">Главная</span>
                 <span className=" text-sm text-gray-600"> | Косметика</span>
@@ -128,7 +134,10 @@ function Catalog(): JSX.Element {
 
             <div className="flex flex-row max-w-screen-md">
                 <div className="sidebar">
-                    <SideBar sortBy={handleFilters} />
+                    <SideBar
+                        sortBy={handleFilters}
+                        filterByPrice={getPrice}
+                    />
                 </div>
                 <div className="product-show container ">
                     {filteredProducts ? (
