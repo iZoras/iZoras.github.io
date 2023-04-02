@@ -16,13 +16,14 @@ import GreyInput from "./greyInput";
 interface HeaderProps {
     title: string;
     cart_price: number;
+    itemsInCart: number;
 }
 
-const Header: React.FC<HeaderProps> = ({ title, cart_price }) => {
+const Header: React.FC<HeaderProps> = ({ title, cart_price, itemsInCart }) => {
     const [screenSize, setScreenSize] = useState({ width: 0, height: 0 });
     const [priceSum, setPriceSum] = useState(1000);
     const [currency, setCurrency] = useState('₸')
-    const [itemsInCart, setItemsInCart] = useState(0)
+    
 
     useEffect(() => {
         const handleResize = () => {

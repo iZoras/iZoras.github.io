@@ -1,5 +1,5 @@
 export interface IProduct {
-    id?: number;
+    id: number;
     url: string;
     title: string;
     typeOfMeasurement: string;
@@ -24,4 +24,11 @@ export interface IFilterItem {
 export interface PriceFilterItem{
   startPrice?: number;
   endPrice?: number;
+}
+
+export interface InfoAboutPurchase{
+  info: {
+      id?: number;
+      amount?: number;
+  }
 }

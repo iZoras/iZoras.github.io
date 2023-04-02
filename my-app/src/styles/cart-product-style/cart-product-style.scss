@@ -1,0 +1,27 @@
+.cart-product-container{
+    box-sizing: border-box;
+    padding: 50px 0;
+}
+
+
+.title-disk{
+    max-width: 480px;
+}
+
+.left-side{
+    
+}
+
+.right-side{
+    display: flex;
+    justify-content: space-around;
+}
+
+.trash-can{
+    padding: 10px, 19px, 10px, 19px;
+}
+
+.dash{
+    border-color: #3F4E65;
+    opacity: 0.3;
+}

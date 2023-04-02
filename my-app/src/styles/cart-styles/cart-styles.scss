@@ -1,0 +1,36 @@
+.cart-container {
+    width: 70%;
+    margin: 0 auto;    
+}
+
+.bread {
+    li {
+        padding: 0 10px;
+        &:first-child {
+            opacity: 0.3;
+
+            border-right: 1px dashed #3f4e65;
+        }
+    }
+}
+
+.cart-product-container{
+    max-height: 290px;
+}
+
+.cart-headline {
+margin: 0 auto 50px 0;
+
+    font-weight: 500;
+    font-size: 40px;
+    line-height: 120%;
+
+    text-transform: uppercase;
+
+    color: #111111;
+}
+
+.dash{
+    border-color: #3F4E65;
+    opacity: 0.3;
+}

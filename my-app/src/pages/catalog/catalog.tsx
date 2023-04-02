@@ -7,10 +7,16 @@ import FilterButton from "../../components/FilterButton";
 import SideBar from "../../components/SideBar/SiteBar";
 import { IFilterItem, IProduct } from "../../models";
 
-function Catalog(): JSX.Element {
+interface CatalogProps {
+    getId: (id: number) => void;
+    addToCart: (id: number) => void;
+    removeFromCart: (id: number) => void;
+}
+
+function Catalog({ addToCart, ...props }: CatalogProps): JSX.Element {
+    localStorage.setItem("products", JSON.stringify(products));
+
     const [product, setProduct] = useState(products);
-    //const [filteredProducts, setFilteredProducts] = useState(product);
-    // const [filtersSettings, setFiltersSettings] = useState<string[]>([]);
 
     const [filtersSettings, setFiltersSettings] = useState<IFilterItem>({
         keywords: [],
@@ -24,32 +30,26 @@ function Catalog(): JSX.Element {
         setProduct([...product, testProduct]);
     }
 
-    const [startPrice, setStartPrice] = useState(0)
-    const [endPrice, setEndPrice] = useState(10000)
+    const [startPrice, setStartPrice] = useState(0);
+    const [endPrice, setEndPrice] = useState(10000);
 
     const getPrice = (end: number, start: number) => {
         setStartPrice(start);
-        setEndPrice(end)
+        setEndPrice(end);
     };
 
     //Добавляем в масив фильтров опции по которым фильтруем
 
-    function inRange(num:number, start: number, end: number){
+    function inRange(num: number, start: number, end: number) {
         return num >= end && num <= start;
-      }
-
-    
-
+    }
 
     const filteredProducts = useMemo(() => {
         let filteredProducts = [...products];
 
-        filteredProducts = filteredProducts.filter(
-            (product) => inRange(product.price.sum, startPrice, endPrice)
-          );
-            console.log(startPrice);
-            console.log(inRange(product[0].price.sum, startPrice, endPrice));
-            console.log(endPrice);
+        filteredProducts = filteredProducts.filter((product) =>
+            inRange(product.price.sum, startPrice, endPrice)
+        );
 
         if (filtersSettings.keywords && filtersSettings.keywords.length)
             if (
@@ -114,9 +114,6 @@ function Catalog(): JSX.Element {
 
     return (
         <div className="catalog-wrap">
-            <button className="fixed left-0" onClick={checkTEST}>
-                CLICK ME
-            </button>
             <div>
                 <span className=" text-gray-700">Главная</span>
                 <span className=" text-sm text-gray-600"> | Косметика</span>
@@ -134,15 +131,17 @@ function Catalog(): JSX.Element {
 
             <div className="flex flex-row max-w-screen-md">
                 <div className="sidebar">
-                    <SideBar
-                        sortBy={handleFilters}
-                        filterByPrice={getPrice}
-                    />
+                    <SideBar sortBy={handleFilters} filterByPrice={getPrice} />
                 </div>
                 <div className="product-show container ">
                     {filteredProducts ? (
                         filteredProducts.map((product) => (
-                            <Product product={product} key={product.id} />
+                            <Product
+                                addToCart={addToCart}
+                                product={product}
+                                key={product.id}
+                                getId={props.getId}
+                            />
                         ))
                     ) : (
                         <p>No products found.</p>
