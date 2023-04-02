@@ -38,7 +38,7 @@ export default function SideBarFilter({filterKey, filterOptions, sortBy, title}:
                 <span>{title}</span>
             </div>
             <div className="grey-input">
-                <GreyInput />
+                <GreyInput className={""} />
             </div>
             <div>
                 <div>

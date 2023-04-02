@@ -55,6 +55,10 @@ export default function Product({ product, getId, addToCart }: ProductProps) {
                 <span className=" text-gray-500">Бренд: </span>
                 <span className="font-bold">{product.brand}</span>
             </p>
+            <p>
+                <span className=" text-gray-500">Ключ: </span>
+                <span className="font-bold">{product.keywords}</span>
+            </p>
             <br />
             <br />
             <div className="flex justify-between items-center ">

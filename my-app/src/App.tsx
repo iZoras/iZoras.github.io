@@ -15,6 +15,10 @@ function App() {
         InfoAboutPurchase[]
     >([]);
 
+    const clearCart = () => {
+      setProductToPurchase([])
+    }
+
     const addToCart = (id: number) => {
         const index = productToPurchase.findIndex(
             (item) => item.info.id === id
@@ -92,7 +96,7 @@ function App() {
                 />
                 <Route
                     path="/cart"
-                    element={<Cart removeFromCart={removeFromCart} info={productToPurchase} />}
+                    element={<Cart clearCart = {clearCart} removeFromCart={removeFromCart} info={productToPurchase} />}
                 />
             </Routes>
             <Footer />

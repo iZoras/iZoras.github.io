@@ -2,6 +2,11 @@
   width: 70%;
   margin: 0 auto;
 }
+@media screen and (max-width: 768px) {
+  .catalog-wrap {
+    width: 100%;
+  }
+}
 
 .product-show {
   display: grid;
@@ -10,10 +15,23 @@
   width: 50%;
   margin-left: 100px;
 }
+@media screen and (max-width: 768px) {
+  .product-show {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+  }
+}
 
 .up-filters {
   justify-content: center;
   gap: 10px;
+}
+@media screen and (max-width: 1078px) {
+  .up-filters {
+    display: none;
+  }
 }
 
 .headline {
@@ -64,4 +82,10 @@
   line-height: 150%;
   color: #3f4e65;
   margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .catalog-container {
+    flex-direction: column-reverse;
+  }
 }/*# sourceMappingURL=catalog.css.map */

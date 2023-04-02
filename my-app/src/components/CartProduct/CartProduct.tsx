@@ -11,32 +11,51 @@ export interface ICartProductProps {
     removeFromCart: (id: number) => void;
 }
 
-export default function CartProduct({ product, amount, removeFromCart }: ICartProductProps) {
+export default function CartProduct({
+    product,
+    amount,
+    removeFromCart,
+}: ICartProductProps) {
     return (
-        <div className="cart-product-container flex">
-            <div className="left-side flex">
-                <img className="" src={product.url} alt="" />
+        <div>
+            <div className="cart-product-container flex container">
+                <div className="container left-side flex ">
+                    <img
+                        className="product-card-img"
+                        src={product.url}
+                        alt=""
+                    />
 
-                <div className="title-disk">
-                    <div>
-                        <img src="" alt="" /> {product.amount}{" "}
-                        {product.typeOfMeasurement}
+                    <div className="title-disk">
+                        <div>
+                            <img src="" alt="" /> {product.amount}{" "}
+                            {product.typeOfMeasurement}
+                        </div>
+                        <h1 className="container cart-product-headline font-bold">
+                            {product.title}
+                        </h1>
+                        <p className="container">{product.description}</p>
                     </div>
-                    <h1 className="cart-product-headline">{product.title}</h1>
-                    <p>{product.description}</p>
                 </div>
-            </div>
 
-            <div className="right-side flex items-center">
-                <span>{amount}</span>
-                <div className="price">
-                    {product.price.sum} {product.price.typeOfCurrency}
+                <div className="right-side items-center justify-around">
+                    <div>
+                        <span>{amount}</span>
+                    </div>
+                    <div className="price">
+                        {product.price.sum} {product.price.typeOfCurrency}
+                    </div>
+                    <OrangeButton
+                        onClick={() => {
+                            removeFromCart(product.id);
+                        }}
+                        className={"mr-0 trash-can w-6 h-6"}
+                    >
+                        <img src={trash_can} alt="" />
+                    </OrangeButton>
                 </div>
-                <OrangeButton onClick = {() => {removeFromCart(product.id)}} className={"mr-0 trash-can"}>
-                    <img src={trash_can} alt="" />
-                </OrangeButton>
             </div>
-            <hr className="border-dashed dash" />
+            <hr />
         </div>
     );
 }

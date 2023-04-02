@@ -19,9 +19,9 @@ export interface SideBarProps {
 export default function SideBar(props: SideBarProps) {
     const [startPrice, setStartPrice] = useState<number>(0);
 
-    const [endPrice, setEndPrice] = useState<number>(10000);
+    const [endPrice, setEndPrice] = useState<number>(20000);
 
-    const manufacturers = ["Hui", "Boyscout", "Paclan", "Булгари Грин"];
+    const manufacturers = ["Toyota", "Boyscout", "Paclan", "Булгари Грин"];
     const brands = ["Nivea", "GRIFON", "Paclan", "Домашний сундук"];
 
     const handleInputEnd = (event: React.ChangeEvent<HTMLInputElement>) => {

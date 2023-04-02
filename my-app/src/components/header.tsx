@@ -11,8 +11,6 @@ import shopping_cart_img from "../img/shopping_cart_img.png";
 import OrangeButton from "./button";
 import GreyInput from "./greyInput";
 
-
-
 interface HeaderProps {
     title: string;
     cart_price: number;
@@ -22,8 +20,7 @@ interface HeaderProps {
 const Header: React.FC<HeaderProps> = ({ title, cart_price, itemsInCart }) => {
     const [screenSize, setScreenSize] = useState({ width: 0, height: 0 });
     const [priceSum, setPriceSum] = useState(1000);
-    const [currency, setCurrency] = useState('₸')
-    
+    const [currency, setCurrency] = useState("₸");
 
     useEffect(() => {
         const handleResize = () => {
@@ -41,8 +38,8 @@ const Header: React.FC<HeaderProps> = ({ title, cart_price, itemsInCart }) => {
 
     return (
         <header className="header">
-            {screenSize.width > 1090 && (
-                <div className="section-wrapper">
+            
+                <div className="section-wrapper not-needed">
                     <div className="header-section justify-between whitespace-nowrap items-center">
                         <div className="flex gap-10">
                             <div className="flex items-center ">
@@ -86,13 +83,13 @@ const Header: React.FC<HeaderProps> = ({ title, cart_price, itemsInCart }) => {
                         </nav>
                     </div>
                 </div>
-            )}
+        
 
             <div className="section-wrapper border border-b-gray-300 border-t-gray-300">
                 <div className="header-section justify-around">
                     <img className="mr-8 ml-0" src={logo_img} alt="logo" />
-                    <OrangeButton className="header-btn">
-                        <span className="text-white">Каталог</span>
+                    <OrangeButton className="header-btn-first">
+                        <span className="">Каталог</span>
                         <div className="button-pick">
                             <span className="square_1"></span>
                             <span className="square_2"></span>
@@ -100,10 +97,10 @@ const Header: React.FC<HeaderProps> = ({ title, cart_price, itemsInCart }) => {
                             <span className="square_4"></span>
                         </div>
                     </OrangeButton>
-
-                    <GreyInput />
-
-                    <div className="flex whitespace-nowrap items-center gap-2">
+                    <div className={"search-input"}>
+                        <GreyInput className={""} />
+                    </div>
+                    <div className="flex whitespace-nowrap items-center gap-2 phone-numbers">
                         <div className="flex flex-col items-end">
                             <span className="font-bold">
                                 +7 (777) 490-00-91
@@ -124,13 +121,20 @@ const Header: React.FC<HeaderProps> = ({ title, cart_price, itemsInCart }) => {
                     </OrangeButton>
 
                     <div className="flex items-center mr-0">
+                        <Link to={"/cart"}>
                         <div className=" relative">
                             <img src={shopping_cart_img} alt="" />
-                            <div className="absolute bg-orange-500 text-white notification">{itemsInCart}</div>
+                            <div className="absolute  text-white notification">
+                                {itemsInCart}
+                            </div>
                         </div>
-                        <div className="flex flex-col">
+                        </Link>
+                        <div className="flex flex-col summary">
                             <span>Корзина</span>
-                            <span>{priceSum}{' ' + currency}</span>
+                            <span>
+                                {priceSum}
+                                {" " + currency}
+                            </span>
                         </div>
                     </div>
                 </div>

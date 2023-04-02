@@ -1,5 +1,8 @@
 import { IProduct } from "../models";
 
+
+
+
 export const products: IProduct[] = [
     {
         id: 1,
@@ -7,8 +10,8 @@ export const products: IProduct[] = [
         title: "Mens Casual Premium Slim Fit T-Shirts",
         typeOfMeasurement: "unit",
         amount: 1,
-        barcode: 11111111,
-        manufacturer: "China",
+        barcode: 89736567,
+        manufacturer: "Toyota",
         brand: "H&M",
         description:
             "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
@@ -24,13 +27,13 @@ export const products: IProduct[] = [
         title: "Mens Casual Premium Slim Fit T-Shirts",
         typeOfMeasurement: "unit",
         amount: 1,
-        barcode: 11111111,
-        manufacturer: "China",
+        barcode: 23432565,
+        manufacturer: "Paclan",
         brand: "H&M",
         description:
             "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
         price: {
-            sum: 9999,
+            sum: 6456,
             typeOfCurrency: "₸",
         },
         keywords: ["руки", "лицо"]
@@ -41,8 +44,8 @@ export const products: IProduct[] = [
         title: "Mens Casual Premium Slim Fit T-Shirts",
         typeOfMeasurement: "unit",
         amount: 1,
-        barcode: 11111111,
-        manufacturer: "China",
+        barcode: 4535454,
+        manufacturer: "Булгари Грин",
         brand: "H&M",
         description:
             "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
@@ -59,12 +62,12 @@ export const products: IProduct[] = [
         typeOfMeasurement: "unit",
         amount: 1,
         barcode: 11111111,
-        manufacturer: "China",
+        manufacturer: "Булгари Грин",
         brand: "H&M",
         description:
             "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
         price: {
-            sum: 9999,
+            sum: 3333,
             typeOfCurrency: "₸",
         },
         keywords: ["руки", "лицо"]
@@ -75,13 +78,13 @@ export const products: IProduct[] = [
         title: "Mens Casual Premium Slim Fit T-Shirts",
         typeOfMeasurement: "unit",
         amount: 1,
-        barcode: 11111111,
-        manufacturer: "China",
+        barcode: 45673654,
+        manufacturer: "Boyscout",
         brand: "H&M ТУтА",
         description:
             "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
         price: {
-            sum: 9999,
+            sum: 14887,
             typeOfCurrency: "₸",
         },
         keywords: [ "лицо","волосы"]
@@ -92,9 +95,9 @@ export const products: IProduct[] = [
         title: "Mens Casual Premium Slim Fit T-Shirts",
         typeOfMeasurement: "unit",
         amount: 1,
-        barcode: 11111111,
-        manufacturer: "Hui",
-        brand: "Huilo",
+        barcode: 34567844,
+        manufacturer: "Boyscout",
+        brand:"Nivea",
         description:
             "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
         price: {
@@ -109,16 +112,16 @@ export const products: IProduct[] = [
         title: "Mens Casual Premium Slim Fit T-Shirts",
         typeOfMeasurement: "unit",
         amount: 1,
-        barcode: 11111111,
-        manufacturer: "China",
-        brand: "H&M",
+        barcode: 78935678,
+        manufacturer: "Paclan",
+        brand: "GRIFON",
         description:
             "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
         price: {
-            sum: 9999,
+            sum: 7777,
             typeOfCurrency: "₸",
         },
-        keywords: ["руки"]
+        keywords: ["руки", "гигиена "]
     },
     {
         id: 8,
@@ -126,16 +129,16 @@ export const products: IProduct[] = [
         title: "Mens Casual Premium Slim Fit T-Shirts",
         typeOfMeasurement: "unit",
         amount: 1,
-        barcode: 11111111,
-        manufacturer: "China",
-        brand: "H&M",
+        barcode: 23456477,
+        manufacturer: "Toyota",
+        brand: "Домашний сундук",
         description:
             "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
         price: {
-            sum: 9999,
+            sum: 15999,
             typeOfCurrency: "₸",
         },
-        keywords:["руки"]
+        keywords:["руки", "тело", "рот"]
     },
     {
         id: 9,
@@ -143,7 +146,7 @@ export const products: IProduct[] = [
         title: "Mens Casual Premium Slim Fit T-Shirts",
         typeOfMeasurement: "unit",
         amount: 1,
-        barcode: 11111111,
+        barcode: 13565478,
         manufacturer: "China",
         brand: "H&M",
         description:
@@ -152,7 +155,7 @@ export const products: IProduct[] = [
             sum: 9999,
             typeOfCurrency: "₸",
         },
-        keywords: ["руки"]
+        keywords: ["ноги"]
     },
     {
         id: 10,
@@ -160,16 +163,16 @@ export const products: IProduct[] = [
         title: "Mens Casual Premium Slim Fit T-Shirts",
         typeOfMeasurement: "unit",
         amount: 1,
-        barcode: 11111111,
+        barcode: 12365474,
         manufacturer: "China",
         brand: "H&M",
         description:
             "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
         price: {
-            sum: 9999,
+            sum: 5252,
             typeOfCurrency: "₸",
         },
-        keywords: ["руки"]
+        keywords: ["подарок"]
     },
     {
         id: 11,
@@ -177,15 +180,17 @@ export const products: IProduct[] = [
         title: "Mens Casual Premium Slim Fit T-Shirts",
         typeOfMeasurement: "unit",
         amount: 1,
-        barcode: 11111111,
+        barcode: 4234643,
         manufacturer: "China",
         brand: "H&M",
         description:
             "Slim-fitting style, contrast raglan long sleeve, three-button henley placket, light weight & soft fabric for breathable and comfortable wearing. And Solid stitched shirts with round neck made for durability and a great fit for casual fashion wear and diehard baseball fans. The Henley style round neckline includes a three-button placket.",
         price: {
-            sum: 9999,
+            sum: 123,
             typeOfCurrency: "₸",
         },
-        keywords: ["руки"]
+        keywords: ["руки", "бритье"]
     }
 ];
+
+

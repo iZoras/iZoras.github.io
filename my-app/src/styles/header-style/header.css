@@ -18,9 +18,15 @@
   border: 1px solid white;
   background-color: transparent;
 }
+@media screen and (max-width: 768px) {
+  .button-pick span {
+    border-color: black;
+  }
+}
 
-.header-btn {
+.header-btn, .header-btn-first {
   padding: 10px 54px;
+  background-color: #ffc85e;
 }
 
 .square_1 {
@@ -47,7 +53,28 @@
   top: -5px;
   right: -5px;
   border: 2px solid white;
+  background-color: #ffc85e;
   font-size: 12px;
-  padding: 3px 6px;
+  padding: 1px 4px;
   border-radius: 50%;
+}
+
+.search-input {
+  padding: 11px 10px 11px 20px;
+  margin: auto 0;
+}
+
+@media screen and (max-width: 768px) {
+  .search-input,
+  .phone-numbers,
+  .header-btn,
+  .summary,
+  .not-needed {
+    display: none;
+  }
+  .header-btn-first {
+    flex-direction: row-reverse;
+    background-color: transparent;
+    color: black !important;
+  }
 }/*# sourceMappingURL=header.css.map */
