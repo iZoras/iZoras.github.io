@@ -116,7 +116,7 @@ function Catalog({ addToCart, ...props }: CatalogProps): JSX.Element {
         <div className="catalog-wrap">
             <div>
                 <span className=" text-gray-700">Главная</span>
-                <span className=" text-sm text-gray-600"> | Косметика</span>
+                <span className=" text-sm text-gray-600"> | Каталог</span>
             </div>
             <h1 className="headline">Косметика и гигиена</h1>
             <div className="up-filters flex my-2">
@@ -129,7 +129,7 @@ function Catalog({ addToCart, ...props }: CatalogProps): JSX.Element {
                 ))}
             </div>
 
-            <div className="flex flex-row max-w-screen-md">
+            <div className="flex flex-row max-w-screen-md catalog-container">
                 <div className="sidebar">
                     <SideBar sortBy={handleFilters} filterByPrice={getPrice} />
                 </div>

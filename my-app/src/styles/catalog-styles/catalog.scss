@@ -1,6 +1,9 @@
 .catalog-wrap {
     width: 70%;
     margin: 0 auto;
+    @media screen and (max-width:768px) {
+        width: 100%;
+    }
 }
 
 .product-show {
@@ -9,11 +12,22 @@
     grid-gap: 20px;
     width: 50%;
     margin-left: 100px;
+
+    @media screen and (max-width: 768px) {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin: 0 auto;
+    }
 }
 
 .up-filters {
     justify-content: center;
     gap: 10px;
+
+    @media screen and (max-width: 1078px) {
+        display: none;
+    }
 }
 
 .headline {
@@ -66,4 +80,10 @@
     line-height: 150%;
     color: #3f4e65;
     margin-bottom: 10px;
+}
+
+.catalog-container {
+    @media screen and (max-width: 768px) {
+        flex-direction: column-reverse;
+    }
 }

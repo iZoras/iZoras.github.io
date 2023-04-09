@@ -17,7 +17,7 @@
   border-right: 1px dashed rgba(63, 78, 101, 0.3);
 }
 .bread-crumbs li:last-child {
-  color: #3F4E65;
+  color: #3f4e65;
   opacity: 0.5;
   border: none;
 }
@@ -26,24 +26,51 @@
   width: 70%;
   margin: 0 auto 100px auto;
 }
+@media (max-width: 900px) {
+  .product-card-container {
+    width: 95%;
+  }
+}
 
 .product-card-wrap {
   display: flex;
   font-family: "Inter", sans-serif;
 }
+@media (max-width: 900px) {
+  .product-card-wrap {
+    flex-direction: column;
+    justify-content: center;
+  }
+}
 
 .img-container {
   width: 50%;
+}
+@media (max-width: 900px) {
+  .img-container {
+    margin: 0 auto;
+  }
 }
 
 .product-card-info {
   width: 50%;
 }
+@media (max-width: 900px) {
+  .product-card-info {
+    width: 100%;
+    margin: 0 auto;
+  }
+}
 
 .product-title {
   font-weight: 800;
-  font-size: 30px;
+  font-size: 2em;
   line-height: 150%;
+}
+@media (max-width: 900px) {
+  .product-title {
+    font-size: 1em;
+  }
 }
 
 .amount-change {
@@ -52,8 +79,8 @@
 }
 
 .amount-btn {
-  width: 34px;
-  height: 23px;
+  width: 2em;
+  height: 1.5em;
   background: linear-gradient(90deg, rgba(255, 198, 80, 0.3) 0%, rgba(254, 202, 110, 0.3) 97.25%);
   border-radius: 1000px;
 }
@@ -66,6 +93,11 @@
   font-weight: 800;
   font-size: 30px;
   line-height: 130%;
+}
+@media (max-width: 900px) {
+  .price {
+    font-size: 1em;
+  }
 }
 
 .add-to-cart {
@@ -85,7 +117,7 @@
   box-shadow: 0px 15px 70px -11px rgba(43, 28, 1, 0.04);
   border-radius: 10px;
   font-weight: 400;
-  font-size: 12px;
+  font-size: 0.5em;
   line-height: 150%;
   padding: 10px;
   gap: 10px;
@@ -102,4 +134,27 @@
 
 .up {
   transform: rotate(180deg);
+}
+
+@media (max-width: 900px) {
+  .hide {
+    display: none;
+  }
+}
+.buy-product {
+  margin: 50px 0 100px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.buy-product-btn {
+  padding: 10px 19px;
+  max-width: 192px;
+}
+
+.sum {
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 130%;
 }/*# sourceMappingURL=product-card-styles.css.map */

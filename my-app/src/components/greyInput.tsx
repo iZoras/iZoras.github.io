@@ -3,11 +3,12 @@ import glass from "../img/magn_glass_for_btn.png";
 import  "../styles/grey_input-style/gray-input-style.css"
 
 interface GreyInputFunctions {
+    className: string;
     submitHandler?: () => void;
     changeHandler?: () => void;
 }
 
-const GreyInput: React.FC<GreyInputFunctions> = () => {
+const GreyInput: React.FC<GreyInputFunctions> = (className) => {
     const [value, setValue] = useState("");
 
     const submitHandler = (event: React.FormEvent) => {
@@ -20,6 +21,8 @@ const GreyInput: React.FC<GreyInputFunctions> = () => {
         setValue(event.target.value);
     };
 
+    const classOfInput = `${className}  outline-0 bg-transparent`
+
     return (
         <form
             className="input-container flex align-middle rounded-full bg-slate-300 my-auto"
@@ -27,7 +30,7 @@ const GreyInput: React.FC<GreyInputFunctions> = () => {
         >
             <input
                 placeholder="Поиск..."
-                className="  outline-0 bg-transparent"
+                className={classOfInput}
                 type="text"
                 value={value}
                 onChange={changeHandler}

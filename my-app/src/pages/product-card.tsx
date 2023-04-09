@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { IProduct } from "../models";
 import "../styles/product-card/product-card-styles.css";
 import shopping_cart from "../img/cart_img_white.png";
@@ -19,7 +19,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
     productId,
     amountInCart,
     addToCart,
-    removeFromCart
+    removeFromCart,
 }) => {
     const navigate = useNavigate();
     const [descShown, setIfDescShown] = useState<boolean>(false);
@@ -41,17 +41,17 @@ const ProductCard: React.FC<ProductCardProps> = ({
     };
 
     const handleAddToCart = () => {
-        addToCart(product.id)
-    }
+        addToCart(product.id);
+    };
 
     const handleRemoveFromCart = () => {
-        removeFromCart(product.id)
-    }
+        removeFromCart(product.id);
+    };
 
     // Destructure the product object for easier access to its properties
 
     return (
-        <div className="product-card-container">
+        <div className="product-card-container container">
             <div className="bread-crumbs-container">
                 <ul className="flex bread-crumbs">
                     <li>Главная</li>
@@ -68,22 +68,35 @@ const ProductCard: React.FC<ProductCardProps> = ({
                     <h1 className="product-title text-black">
                         {product.title}
                     </h1>
-                    <div className="amount ">
+                    <div className="amount whitespace-nowrap">
                         <img src="" alt="" />
-                        {product.amount}
-                        {product.typeOfMeasurement}
+                        {product.amount}{product.typeOfMeasurement}
+                        
                     </div>
                     <div className="price-and-add flex items-center text-black">
                         <span className="price">
-                            {product.price.sum} {product.price.typeOfCurrency}
+                            {`${product.price.sum} ${product.price.typeOfCurrency}`}
                         </span>
                         <div className="amount-change">
-                            <button onClick={handleRemoveFromCart} className="amount-btn">-</button>
+                            <button
+                                onClick={handleRemoveFromCart}
+                                className="amount-btn"
+                            >
+                                -
+                            </button>
                             {amountInCart}
-                            <button onClick={handleAddToCart} className="amount-btn">+</button>
+                            <button
+                                onClick={handleAddToCart}
+                                className="amount-btn"
+                            >
+                                +
+                            </button>
                         </div>
                         <OrangeButton className={"flex "}>
-                            <div onClick={handleAddToCart} className="flex add-to-cart">
+                            <div
+                                onClick={handleAddToCart}
+                                className="flex add-to-cart"
+                            >
                                 <span className="text-white">В корзину</span>
                                 <img src={shopping_cart} alt="" />
                             </div>
@@ -93,7 +106,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                         <div className="white-shadow">
                             <img src={share_img} alt="" />{" "}
                         </div>
-                        <div className="white-shadow">
+                        <div className="white-shadow hide">
                             <span>
                                 При покупке от{" "}
                                 <span className="font-bold">10 000 ₸</span>{" "}
@@ -102,7 +115,7 @@ const ProductCard: React.FC<ProductCardProps> = ({
                                 доставка по Кокчетаву и области
                             </span>
                         </div>
-                        <div className="white-shadow">
+                        <div className="white-shadow hide">
                             <span className="font-bold">Прайс-лист</span>
                             <img src={down_arrow_img} alt="" />
                         </div>
