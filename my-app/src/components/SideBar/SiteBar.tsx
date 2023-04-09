@@ -37,6 +37,7 @@ export default function SideBar(props: SideBarProps) {
         setStartPrice(value);
     };
 
+    
     useEffect(() => {
         props.filterByPrice(startPrice, endPrice);
     }, [startPrice, endPrice]);
