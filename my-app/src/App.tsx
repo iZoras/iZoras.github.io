@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link, Route, Routes } from "react-router-dom";
-import Footer from "./components/Footer";
+import Footer from "./components/footer";
 import Header from "./components/header";
 import { InfoAboutPurchase } from "./models";
 import Cart from "./pages/cart/Cart";

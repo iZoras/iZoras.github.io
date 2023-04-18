@@ -73,7 +73,7 @@ function Catalog({ addToCart, ...props }: CatalogProps): JSX.Element {
         }
 
         return filteredProducts;
-    }, [products, filtersSettings, startPrice, endPrice]);
+    }, [filtersSettings, startPrice, endPrice]);
 
     const handleFilters = (
         typeOfFilter: keyof IFilterItem,
