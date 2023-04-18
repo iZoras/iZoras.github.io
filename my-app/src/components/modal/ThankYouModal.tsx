@@ -8,7 +8,7 @@ interface Props {
 
 const ThankYouModal: React.FC<Props> = ({ onClose }) => {
   return (
-    <div onClick = {onClose} className="modal">
+    <div onClick = {onClose} className="modal" data-testid="modal">
       <div className="modal-content">
         <div className="modal-header">
           

@@ -16,16 +16,12 @@ export default function Cart({ info, removeFromCart, clearCart }: ICartProps) {
     const [sum, setSum] = React.useState(0);
     const [modal, setModal] = React.useState(false);
 
-    const [productToPurchase, setProductToPurchase] =
-        React.useState<IProduct[]>(products);
+    const productToPurchase = products;
 
     const productsInCart = productToPurchase.filter((p) => {
-        console.log("hello");
         const cartItem = info.find((item) => item.info.id === p.id);
         return cartItem !== undefined;
     });
-
-   
 
     React.useEffect(() => {
         const newSum = calcSum(productsInCart);
@@ -34,7 +30,7 @@ export default function Cart({ info, removeFromCart, clearCart }: ICartProps) {
 
     const calcSum = (cartItem: IProduct[]) => {
         return cartItem.reduce((total, item) => {
-            return total + item.price.sum;
+            return total + item.price.sum * findAmount(item.id);
         }, 0);
     };
 
@@ -44,29 +40,40 @@ export default function Cart({ info, removeFromCart, clearCart }: ICartProps) {
 
     const handleClick = () => {
         clearCart();
-        setModal(!modal);
+        closeModal();
+    };
+
+    const findAmount = (id: number) => {
+        const productInfo = info.find((e) => e.info.id === id);
+        if (productInfo === undefined) {
+            return 0;
+        } else return productInfo.info.amount;
     };
 
     return (
-        <div className="cart-container">
+        <div data-testid="main" className="cart-container">
             <div className="bread-crumbs-container">
                 <ul className="flex bread">
                     <li>Главня</li>
                     <li>Корзина</li>
                 </ul>
             </div>
-            <h1 className="cart-headline">Корзина</h1>
+            <h1 data-testid="cart" className="cart-headline">
+                Корзина
+            </h1>
             <hr className="border-dashed dash" />
-            {!info && <h1>Карзина пуста</h1>  }
+            {!productsInCart.length && (
+                <h1 data-testid="empty">Карзина пуста</h1>
+            )}
             {productsInCart.map((cartItem) => {
                 const product = products.find((p) => p.id === cartItem.id);
                 if (product) {
                     return (
-                        <CartProduct                            
+                        <CartProduct
                             removeFromCart={removeFromCart}
                             key={product.id}
                             product={product}
-                            amount={cartItem.amount || 0}
+                            amount={findAmount(product.id)}
                         />
                     );
                 }
@@ -78,7 +85,7 @@ export default function Cart({ info, removeFromCart, clearCart }: ICartProps) {
                     onClick={handleClick}
                     className={"buy-product-btn"}
                 >
-                    <span>Оформить заказ</span>
+                    <span data-testid="buy">Оформить заказ</span>
                 </OrangeButton>
 
                 <div>

@@ -38,8 +38,8 @@ function CheckboxFilter({
         <div>
             <ul className="flex flex-col justify-start">
                 {options.map((option) => (
-                    <li key={option}>
-                        <label>
+                    <li key={option} >
+                        <label data-testid={`option-${option}`}>
                             <input
                                 className=" w-8"
                                 type="checkbox"

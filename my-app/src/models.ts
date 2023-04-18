@@ -28,7 +28,7 @@ export interface PriceFilterItem{
 
 export interface InfoAboutPurchase{
   info: {
-      id?: number;
-      amount?: number;
+      id: number;
+      amount: number;
   }
 }

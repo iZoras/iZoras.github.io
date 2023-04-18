@@ -2,9 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+
+
 body{
     margin: 0 auto;
-    max-width: 1980px;
+    max-width: 1980px;    
 }
 
 .bg-color-#FFC85E{

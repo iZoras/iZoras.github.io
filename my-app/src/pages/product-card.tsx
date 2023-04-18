@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import {  useNavigate } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { IProduct } from "../models";
 import "../styles/product-card/product-card-styles.css";
 import shopping_cart from "../img/cart_img_white.png";
@@ -9,28 +9,31 @@ import down_arrow_img from "../img/grey_down_arrow.png";
 import lil_arrow from "../img/lil_description_arrow.png";
 
 interface ProductCardProps {
-    productId: number;
     amountInCart: number;
     addToCart: (id: number) => void;
     removeFromCart: (id: number) => void;
 }
 
 const ProductCard: React.FC<ProductCardProps> = ({
-    productId,
     amountInCart,
     addToCart,
     removeFromCart,
 }) => {
     const navigate = useNavigate();
     const [descShown, setIfDescShown] = useState<boolean>(false);
+    const [id, setId] = useState<number>();
 
-    // Get the product object from localStorage using the productId
+    useEffect(() => {
+        const url = new URL(window.location.href);
+        const searchParams = new URLSearchParams(url.search);
+        setId(Number(searchParams.get("id")));
+    }, []);
+
     const products: IProduct[] = JSON.parse(
         localStorage.getItem("products") || "[]"
     );
-    const product = products.find((p: IProduct) => p.id === productId);
+    const product = products.find((p: IProduct) => p.id === id);
 
-    // If no product is found, redirect to the catalog page
     if (!product) {
         navigate("/catalog");
         return null;
@@ -48,8 +51,6 @@ const ProductCard: React.FC<ProductCardProps> = ({
         removeFromCart(product.id);
     };
 
-    // Destructure the product object for easier access to its properties
-
     return (
         <div className="product-card-container container">
             <div className="bread-crumbs-container">
@@ -63,15 +64,17 @@ const ProductCard: React.FC<ProductCardProps> = ({
                 <div className="img-container">
                     <img className="w-1/2 mx-auto" src={product.url} alt="" />
                 </div>
-                <div className="product-card-info">
-                    <span className="text-green-500">В наличии</span>
+                <div  className="product-card-info">
+                    <span data-testid="available" className="text-green-500" >
+                        В наличии
+                    </span>
                     <h1 className="product-title text-black">
                         {product.title}
                     </h1>
                     <div className="amount whitespace-nowrap">
                         <img src="" alt="" />
-                        {product.amount}{product.typeOfMeasurement}
-                        
+                        {product.amount}
+                        {product.typeOfMeasurement}
                     </div>
                     <div className="price-and-add flex items-center text-black">
                         <span className="price">

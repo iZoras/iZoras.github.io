@@ -37,7 +37,7 @@ const Header: React.FC<HeaderProps> = ({ title, cart_price, itemsInCart }) => {
     }, []);
 
     return (
-        <header className="header">
+        <header data-testid="header" className="header">
             
                 <div className="section-wrapper not-needed">
                     <div className="header-section justify-between whitespace-nowrap items-center">

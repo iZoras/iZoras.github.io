@@ -1,14 +1,13 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import Product from "../../components/Product";
 import { products } from "../../data/products";
 import "../../styles/catalog-styles/catalog.css";
 import { filters } from "../../pages/catalog/catalog_viewController";
 import FilterButton from "../../components/FilterButton";
 import SideBar from "../../components/SideBar/SiteBar";
-import { IFilterItem, IProduct } from "../../models";
+import { IFilterItem } from "../../models";
 
 interface CatalogProps {
-    getId: (id: number) => void;
     addToCart: (id: number) => void;
     removeFromCart: (id: number) => void;
 }
@@ -16,19 +15,11 @@ interface CatalogProps {
 function Catalog({ addToCart, ...props }: CatalogProps): JSX.Element {
     localStorage.setItem("products", JSON.stringify(products));
 
-    const [product, setProduct] = useState(products);
-
     const [filtersSettings, setFiltersSettings] = useState<IFilterItem>({
         keywords: [],
         manufacturer: [],
         brand: [],
     });
-
-    const testProduct = products[0];
-
-    function testAddProduct() {
-        setProduct([...product, testProduct]);
-    }
 
     const [startPrice, setStartPrice] = useState(0);
     const [endPrice, setEndPrice] = useState(10000);
@@ -108,12 +99,8 @@ function Catalog({ addToCart, ...props }: CatalogProps): JSX.Element {
         }));
     };
 
-    const checkTEST = () => {
-        console.log(filtersSettings);
-    };
-
     return (
-        <div className="catalog-wrap">
+        <div data-testid="catalog" className="catalog-wrap">
             <div>
                 <span className=" text-gray-700">Главная</span>
                 <span className=" text-sm text-gray-600"> | Каталог</span>
@@ -140,7 +127,6 @@ function Catalog({ addToCart, ...props }: CatalogProps): JSX.Element {
                                 addToCart={addToCart}
                                 product={product}
                                 key={product.id}
-                                getId={props.getId}
                             />
                         ))
                     ) : (

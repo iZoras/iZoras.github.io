@@ -1,22 +1,19 @@
-import React, { useState } from "react";
 import { IProduct } from "../models";
 import OrangeButton from "./button";
 import white_cart_img from "../img/cart_img_white.png";
 import "../styles/product-style/product.css";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-interface ProductProps {
+export interface ProductProps {
     product: IProduct;
-    getId: (id: number) => void;
     addToCart: (id: number) => void;
 }
 
-export default function Product({ product, getId, addToCart }: ProductProps) {
+export default function Product({ product, addToCart }: ProductProps) {
     const navigate = useNavigate();
 
     const handleClick = () => {
-        getId(product.id);
-        navigate(`/product-card/${product.barcode}`);
+        navigate(`/product-card?id=${product.id}`);
     };
 
     const handleAddToCart = () => {
@@ -24,7 +21,11 @@ export default function Product({ product, getId, addToCart }: ProductProps) {
     };
 
     return (
-        <div className="product-container flex flex-col shadow p-4">
+        <div
+           
+            data-testid={"title"}
+            className="product-container flex flex-col shadow p-4"
+        >
             <img
                 src={product.url}
                 alt={product.title}
@@ -66,8 +67,11 @@ export default function Product({ product, getId, addToCart }: ProductProps) {
                     {product.price.sum}
                     {product.price.typeOfCurrency}
                 </span>
-                <OrangeButton onClick={handleAddToCart} className={"product-btn flex flex-row "}>
-                    <span>В корзину</span>
+                <OrangeButton
+                    onClick={handleAddToCart}
+                    className={"product-btn flex flex-row "}
+                >
+                    <span data-testid={`click${product.id}`}>В корзину</span>
                     <img src={white_cart_img} alt="" />
                 </OrangeButton>
             </div>
